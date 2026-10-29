@@ -33,14 +33,28 @@ Este projeto foi concebido para auditar e analisar padrões de votação nos mic
 
 ## 📸 Capturas de Tela e Interface
 
+Aqui estão as principais telas do dashboard interativo que mapeiam e auditam os dados oficiais do TSE:
+
 ### 1. Painel de Resumo Executivo & Alertas Atípicos
 > *Visualização dos municípios com ganhos de votos desproporcionais e mapeamento das seções na faixa residual.*
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/derikpetiz/eleicoes-tse-app/main/img/dashboard_resumo.png" alt="Resumo Executivo e Alertas" width="85%">
+</p>
 
 ### 2. Distribuição de Votos do 1º vs 2º Turno & Piscina Disputável
 > *Gráfico de barras agrupadas demonstrando o reservatório flutuante de votos e sua absorção entre os turnos.*
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/derikpetiz/eleicoes-tse-app/main/img/grafico_fluxo.png" alt="Comparativo de Turnos e Fluxo" width="85%">
+</p>
+
 ### 3. Teste de Benford (2º Dígito) & Conformidade Numérica
 > *Gráfico de aderência da frequência observada no TSE contra a curva teórica de Newcomb-Benford.*
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/derikpetiz/eleicoes-tse-app/main/img/teste_benford.png" alt="Lei de Benford do Segundo Dígito" width="85%">
+</p>
 
 ---
 
