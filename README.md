@@ -33,34 +33,17 @@ Este projeto foi concebido para auditar e analisar padrões de votação nos mic
 
 ## 📸 Capturas de Tela e Interface
 
-Aqui estão as principais telas do dashboard interativo que mapeiam e auditam os dados oficiais do TSE:
-
-### 1. Painel de Resumo Executivo & Alertas Atípicos
-> *Visualização dos municípios com ganhos de votos desproporcionais e mapeamento das seções na faixa residual.*
+Abaixo estão apresentadas as telas consolidadas do dashboard interativo, contemplando o Resumo Executivo, o Mapeamento de Seções Residuais, a Comparação por Turnos e o Teste de Benford (2º Dígito):
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/derikpetiz/eleicoes-tse-app/main/img/dashboard_resumo.png" alt="Resumo Executivo e Alertas" width="85%">
-</p>
-
-### 2. Distribuição de Votos do 1º vs 2º Turno & Piscina Disputável
-> *Gráfico de barras agrupadas demonstrando o reservatório flutuante de votos e sua absorção entre os turnos.*
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/derikpetiz/eleicoes-tse-app/main/img/grafico_fluxo.png" alt="Comparativo de Turnos e Fluxo" width="85%">
-</p>
-
-### 3. Teste de Benford (2º Dígito) & Conformidade Numérica
-> *Gráfico de aderência da frequência observada no TSE contra a curva teórica de Newcomb-Benford.*
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/derikpetiz/eleicoes-tse-app/main/img/teste_benford.png" alt="Lei de Benford do Segundo Dígito" width="85%">
+  <img src="https://raw.githubusercontent.com/derikpetiz/eleicoes-tse-app/main/img/dashboard_consolidado.png" alt="Interface Completa do Painel de Auditoria Eleitoral" width="95%">
 </p>
 
 ---
 
 ## 💡 Principais Insights & Achados da Auditoria (Findings)
 
-* **Concentração em Seções Residuais ($\le 10$ Votos):** Foi identificada uma assimetria na distribuição acumulada de votos em seções onde a votação de um dos candidatos permaneceu na faixa residual ($0$ a $10$ votos), acumulando centenas de milhares de votos para o adversário em zonas específicas.
+* **Concentração em Seções Residuais ($\le 10$ Votos):** Identificou-se uma grande assimetria na distribuição acumulada de votos em seções onde a votação de um dos candidatos permaneceu na faixa residual ($0$ a $10$ votos), acumulando expressiva margem para o adversário em zonas específicas.
 * **Volume de Habilitações sem Biometria:** A auditoria aponta que **~8,63 milhões de votos foram liberados manualmente** mediante digitação do ano de nascimento pelo mesário. Este volume supera em quase duas vezes a margem final de diferença nacional (~4,43 milhões de votos).
 * **Anomalia Estatística de Seções Unânimes ($0$ Votos):** Sob a **Lei dos Grandes Números**, a probabilidade de um candidato de expressão relevante no 1º turno obter $0$ votos em uma seção urbana densa no 2º turno sob independência aleatória é estatisticamente desprezível ($p < 0,00001$), configurando *outliers* com desvio-padrão $Z\text{-Score} > 4.0$.
 * **Aderência à Lei de Newcomb-Benford:** O teste de Chi-Quadrado ($\chi^2$) aplicado ao **2º dígito da votação** por seção permite rastrear discrepâncias estocásticas nas seções retidas ou transmitidas com atraso.
