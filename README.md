@@ -13,23 +13,43 @@ O painel reúne testes estatísticos avançados, diagnósticos de conformidade e
 
 ## 📌 Índice
 
-- [Funcionalidades Principais](#-funcionalidades-principais)
+- [Descrição do Projeto](#-descrição-do-projeto)
+- [Capturas de Tela e Interface](#-capturas-de-tela-e-interface)
+- [Principais Insights & Achados da Auditoria](#-principais-insights--achados-da-auditoria)
 - [Estrutura das Abas do Painel](#-estrutura-das-abas-do-painel)
 - [Modelos Estatísticos & Conceitos Científicos](#-modelos-estatísticos--conceitos-científicos)
-- [Pré-requisitos e Tecnologias](#-pré-requisitos-e-tecnologias)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [Instalação e Execução Local](#-instalação-e-execução-local)
-- [Publicação e Deploy no Streamlit Cloud](#-publicação-e-deploy-no-streamlit-cloud)
+- [Publicação e Deploy](#-publicação-e-deploy)
 - [Licença](#-licença)
 
 ---
 
-## 🚀 Funcionalidades Principais
+## 📝 Descrição do Projeto
 
-* **Filtros Dinâmicos:** Filtragem regional por Região e Estado (UF) em tempo real.
-* **Processamento Automatizado de Microdados:** Leitura de arquivos compactados (`.ZIP`), tabelas estáticas (`.CSV`) ou bases otimizadas em formato Parquet (`.PARQUET`).
-* **Detecção Automática de Outliers:** Identificação imediata de seções com votação unânime ($0$ votos) e ganhos desproporcionais por município.
-* **Simulador Contrafactual:** Ajuste fino via *sliders* para modelar taxas de transferência e migração dos votos de terceiros candidatos, brancos/nulos e ativação de abstêmios.
-* **Testes Estatísticos de Conformidade:** Avaliação de aderência dos dígitos finais pela **Lei de Newcomb-Benford (2º Dígito)** e testes não-paramétricos de distribuição.
+Este projeto foi concebido para auditar e analisar padrões de votação nos microdados do TSE no 2º Turno. A ferramenta permite checar a consistência numérica e operacional dos dados por meio de modelagem econométrica, testes não-paramétricos, análise de congruência de voto cruzado (proporcional vs majoritário) e avaliação de aderência à **Lei de Benford**.
+
+---
+
+## 📸 Capturas de Tela e Interface
+
+### 1. Painel de Resumo Executivo & Alertas Atípicos
+> *Visualização dos municípios com ganhos de votos desproporcionais e mapeamento das seções na faixa residual.*
+
+### 2. Distribuição de Votos do 1º vs 2º Turno & Piscina Disputável
+> *Gráfico de barras agrupadas demonstrando o reservatório flutuante de votos e sua absorção entre os turnos.*
+
+### 3. Teste de Benford (2º Dígito) & Conformidade Numérica
+> *Gráfico de aderência da frequência observada no TSE contra a curva teórica de Newcomb-Benford.*
+
+---
+
+## 💡 Principais Insights & Achados da Auditoria (Findings)
+
+* **Concentração em Seções Residuais ($\le 10$ Votos):** Foi identificada uma assimetria na distribuição acumulada de votos em seções onde a votação de um dos candidatos permaneceu na faixa residual ($0$ a $10$ votos), acumulando centenas de milhares de votos para o adversário em zonas específicas.
+* **Volume de Habilitações sem Biometria:** A auditoria aponta que **~8,63 milhões de votos foram liberados manualmente** mediante digitação do ano de nascimento pelo mesário. Este volume supera em quase duas vezes a margem final de diferença nacional (~4,43 milhões de votos).
+* **Anomalia Estatística de Seções Unânimes ($0$ Votos):** Sob a **Lei dos Grandes Números**, a probabilidade de um candidato de expressão relevante no 1º turno obter $0$ votos em uma seção urbana densa no 2º turno sob independência aleatória é estatisticamente desprezível ($p < 0,00001$), configurando *outliers* com desvio-padrão $Z\text{-Score} > 4.0$.
+* **Aderência à Lei de Newcomb-Benford:** O teste de Chi-Quadrado ($\chi^2$) aplicado ao **2º dígito da votação** por seção permite rastrear discrepâncias estocásticas nas seções retidas ou transmitidas com atraso.
 
 ---
 
@@ -53,14 +73,14 @@ O painel reúne testes estatísticos avançados, diagnósticos de conformidade e
 
 ---
 
-## 🛠️ Pré-requisitos e Tecnologias
+## 🛠️ Tecnologias Utilizadas
 
-* **Python 3.10+**
-* **Streamlit** (Interface Web)
-* **Pandas & NumPy** (Manipulação e agregação de dados)
-* **SciPy** (Testes de hipótese e estatística inferencial)
-* **Plotly** (Gráficos interativos e dashboards)
-* **PyArrow / Fastparquet** (Leitura acelerada de arquivos `.parquet`)
+- **Linguagem:** Python 3.10+
+- **Dashboard Web:** Streamlit
+- **Manipulação de Dados:** Pandas, NumPy
+- **Estatística Inferencial:** SciPy (`scipy.stats`)
+- **Visualização de Dados:** Plotly Express & Graph Objects
+- **Formato de Dados:** Apache Parquet (`pyarrow` / `fastparquet`)
 
 ---
 
