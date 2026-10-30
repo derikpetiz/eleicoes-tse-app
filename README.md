@@ -87,3 +87,5 @@ Abaixo estão apresentadas as telas consolidadas do dashboard interativo, contem
    ```bash
    git clone [https://github.com/derikpetiz/eleicoes-tse-app.git](https://github.com/derikpetiz/eleicoes-tse-app.git)
    cd eleicoes-tse-app
+
+2. **Link:** https://eleicoes-tse-app-ahfddze4y2hfd9dbs4h8pq.streamlit.app/
