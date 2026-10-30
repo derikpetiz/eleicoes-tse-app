@@ -36,7 +36,7 @@ Este projeto foi concebido para auditar e analisar padrões de votação nos mic
 Abaixo estão apresentadas as telas consolidadas do dashboard interativo, contemplando o Resumo Executivo, o Mapeamento de Seções Residuais, a Comparação por Turnos e o Teste de Benford (2º Dígito):
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/derikpetiz/eleicoes-tse-app/main/img/dashboard_consolidado.png" alt="Interface Completa do Painel de Auditoria Eleitoral" width="95%">
+  <img src="https://raw.githubusercontent.com/derikpetiz/eleicoes-tse-app/main/dashboard_consolidado.png" alt="Interface Completa do Painel de Auditoria Eleitoral" width="95%">
 </p>
 
 ---
